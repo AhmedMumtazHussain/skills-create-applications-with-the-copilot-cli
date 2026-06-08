@@ -1,5 +1,6 @@
 // Supported operations: addition (add / +), subtraction (subtract / -),
-// multiplication (multiply / *), division (divide / /)
+// multiplication (multiply / *), division (divide / /), modulo (modulo / %),
+// exponentiation (power / pow / **), square root (squareRoot / sqrt)
 
 /**
  * Add two numbers
@@ -44,9 +45,47 @@ function divide(a, b) {
   return a / b;
 }
 
+/**
+ * Return the remainder of dividing a by b. Throws on modulo by zero.
+ * @param {number} a
+ * @param {number} b
+ * @returns {number}
+ */
+function modulo(a, b) {
+  if (b === 0) {
+    throw new Error('Modulo by zero');
+  }
+  return a % b;
+}
+
+/**
+ * Return base raised to exponent.
+ * @param {number} base
+ * @param {number} exponent
+ * @returns {number}
+ */
+function power(base, exponent) {
+  return Math.pow(base, exponent);
+}
+
+/**
+ * Return the square root of n. Throws on negative input.
+ * @param {number} n
+ * @returns {number}
+ */
+function squareRoot(n) {
+  if (n < 0) {
+    throw new Error('Square root of negative number');
+  }
+  return Math.sqrt(n);
+}
+
 module.exports = {
   add,
   subtract,
   multiply,
   divide,
+  modulo,
+  power,
+  squareRoot,
 };
