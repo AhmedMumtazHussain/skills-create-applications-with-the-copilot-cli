@@ -48,4 +48,48 @@ describe('calculator functions', () => {
       expect(() => calc.divide(1, 0)).toThrow('Division by zero');
     });
   });
+
+  describe('extended operations', () => {
+    describe('modulo', () => {
+      test('5 % 2 = 1', () => {
+        expect(calc.modulo(5, 2)).toBe(1);
+      });
+
+      test('negative modulo', () => {
+        expect(calc.modulo(-5, 2)).toBe(-1);
+      });
+
+      test('modulo by zero throws', () => {
+        expect(() => calc.modulo(1, 0)).toThrow('Modulo by zero');
+      });
+    });
+
+    describe('power', () => {
+      test('2 ^ 3 = 8', () => {
+        expect(calc.power(2, 3)).toBe(8);
+      });
+
+      test('power with zero exponent', () => {
+        expect(calc.power(5, 0)).toBe(1);
+      });
+
+      test('power with negative exponent', () => {
+        expect(calc.power(2, -2)).toBeCloseTo(0.25);
+      });
+    });
+
+    describe('squareRoot', () => {
+      test('sqrt(16) = 4', () => {
+        expect(calc.squareRoot(16)).toBe(4);
+      });
+
+      test('sqrt of non-perfect square', () => {
+        expect(calc.squareRoot(2)).toBeCloseTo(Math.SQRT2);
+      });
+
+      test('sqrt of negative throws', () => {
+        expect(() => calc.squareRoot(-1)).toThrow('Square root of negative number');
+      });
+    });
+  });
 });
